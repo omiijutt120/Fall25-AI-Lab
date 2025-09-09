@@ -1,0 +1,5 @@
+18,Turn on the AC
+22,Turn on the AC
+20,Turn on the AC
+24,Turn on the AC18,Turn on heater
+18,Turn off heater
