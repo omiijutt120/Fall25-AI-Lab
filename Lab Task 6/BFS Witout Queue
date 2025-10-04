@@ -1,0 +1,27 @@
+graph = {
+    'A':['B', 'C'],
+    'B':['D', 'E'],
+    'C': ['F'],
+    'D': ['G','H'],
+    'E': [],
+    'F':['I','K']
+}
+
+start = 'A'
+goal = input("Enter your Goal : ").upper()
+
+n_v = []
+a = [start]
+
+while a:
+    n_l = []
+    for i in a:
+        if i not in n_v:
+            n_v.append(i)
+            if i == goal:
+                print("Output:", n_v)
+            for j in graph[i]:
+                n_l.append(j)
+    a = n_l
+
+print("Error")
