@@ -1,0 +1,38 @@
+class Queue:
+    def __init__(self):
+        self.items = []
+    
+    def enqueue(self, a):
+        self.items.append(a)
+    
+    def dequeue(self):
+        return self.items.pop(0)
+
+
+graph = {
+    'A':['B', 'C'],
+    'B':['D', 'E'],
+    'C':['F'],
+    'D':['G','H'],
+    'E':[],
+    'F':['I','K']
+}
+
+start = 'A'
+goal = input("Enter your Goal : ").upper()
+
+n_v = [] 
+q = Queue()  
+q.enqueue(start)
+
+while q.items:
+    x = q.dequeue()
+    if x not in n_v:
+        n_v.append(x)
+        if x == goal:
+            print("Output:", n_v)
+            exit()
+        for j in graph[x]:
+            q.enqueue(j)
+
+print("Error")
