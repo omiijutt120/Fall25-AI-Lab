@@ -1,36 +1,37 @@
-tree = {
+class Stack:
+    def __init__(self):
+        self.items = []
+    
+    def push(self, x):
+        self.items.append(x)
+    
+    def pop(self):
+        if self.items:
+            return self.items.pop()
+
+graph = {
     'A': ['B', 'C'],
     'B': ['D', 'E'],
     'C': ['F'],
-    'D': [],
+    'D': ['G', 'H'],
     'E': [],
-    'F': ['G'],
-    'G': []
+    'F': ['I', 'K'],
 }
 
-class Stack:
-    def __init__(self):
-        self.tree = []
+start = 'A'
+goal = input("Enter your Goal : ").upper()
 
-    def push(self, x):
-        self.tree.append(x)
+n_v = []
+s = Stack()
+s.push(start)
 
-    def pop(self):
-        if self.tree:
-            return self.tree.pop()
-        return None
+while s.items:
+    a = s.pop()
+    if a not in n_v:
+        n_v.append(a)
+        if a == goal:
+            print("Output:", n_v)
+        for child in graph[a]:
+            s.push(child)
 
-def dfs():
-    v = []
-    stack = Stack()
-    stack.push('A')
-
-    while stack.tree:
-        n = stack.pop()
-        if n not in v:
-            v.append(n)
-            for i in reversed(tree[n]):
-                stack.push(i)
-    return v
-
-print(dfs())
+print("Error")
