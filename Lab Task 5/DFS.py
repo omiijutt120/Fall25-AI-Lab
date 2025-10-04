@@ -31,6 +31,7 @@ while s.items:
         n_v.append(a)
         if a == goal:
             print("Output:", n_v)
+            exit()
         for child in graph[a]:
             s.push(child)
 
