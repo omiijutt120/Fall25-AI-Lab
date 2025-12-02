@@ -1,25 +1,20 @@
 import pandas as pd
 
-# 1. LOAD THE DATASET
-Dataset = pd.read_csv("ObesityDataSet.csv")
+fp = 'ObesityDataSet.csv'
+dt = pd.read_csv(fp)
 
-# 2. Print Top 5 rows of dataset: 
-Dataset.head() 
+print('Dataset Loaded')
 
-#3. Print Bottom 5 rows of dataset: 
-Dataset.tail() 
+print('Top 5 Rows:')
+print(dt.head())
 
-#4. Print Number of Rows and Columns in dataset: 
-print('rows: ', Dataset.shape[0]) 
-print('columns: ', Dataset.shape[1]) 
+print('\nBottom 5 Rows:')
+print(dt.tail())
 
-#5. Print/Determine all the null columns in dataset: 
-Dataset.isnull().sum()
+print('\nShape (Rows, Columns):', dt.shape)
 
-#6. Filling null values using mean / median / mode: 
-Dataset = Dataset.fillna(Dataset.mean) 
-Dataset = Dataset.fillna(Dataset.median) 
-Dataset = Dataset.fillna(Dataset.mode) 
+print('\nNull Values Count:')
+print(dt.isnull().sum())
 
-#7. Print datatype of each column: 
-print(Dataset.dtypes)
+print('\nColumn Data Types:')
+print(dt.dtypes)
